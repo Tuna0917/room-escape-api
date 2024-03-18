@@ -2,11 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 
-RUN npm install
+RUN npm install -g pnpm
 
 RUN npm install -g ts-node-dev
+
+RUN pnpm i
 
 COPY . .
 
